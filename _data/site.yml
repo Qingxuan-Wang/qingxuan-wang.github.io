@@ -3,11 +3,11 @@ page_title: Qingxuan Wang | Nankai University
 description: Qingxuan Wang is a postdoctoral researcher and assistant research fellow at Nankai University, working on authentication and applied cryptography.
 social_description: Authentication, applied cryptography, and protocol security.
 profile_image: assets/profile-mystic.png
-profile_alt: AI-generated mystical scholar avatar
+profile_alt: 
 
 links:
   - label: Email
-    url: mailto:wangqingxuan@mail.nankai.edu.cn
+    url: mailto:wangqingxuan@nankai.edu.cn
   - label: Scholar
     url: https://scholar.google.com/citations?user=QmkYAQgAAAAJ&hl=en
   - label: ResearchGate
