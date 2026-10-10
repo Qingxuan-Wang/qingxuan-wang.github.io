@@ -18,4 +18,10 @@ Checked 2026-10-10.
 - Quantum2FA: https://doi.org/10.1109/TDSC.2021.3129512 — 2023, 20(1), 193–208.
 - Data outsourcing: https://doi.org/10.1109/TSC.2020.3041324 — 2022, 15(4), 2226–2231.
 
-The homepage displays only papers in verified CCF-A venues. It does not claim this selection is the full publication list. Rank badges link to the official CCF journal lists. No JCR or ESI badges are inferred. Author order is preserved; no correspondence markers are inferred. Role descriptions differ across public sources, so the site states only the verified university affiliation.
+The homepage displays only papers in verified CCF-A venues. It does not claim this selection is the full publication list. Rank badges link to the official CCF journal lists. JCR badges use the dated publisher source documented below; no ESI badges are inferred. Author order is preserved; no correspondence markers are inferred. Role descriptions differ across public sources, so the site states only the verified university affiliation.
+
+## Profile and JCR update (2026-10-10)
+
+The site owner confirmed the current positions: postdoctoral researcher and assistant research fellow at Nankai University, working with Professor Ding Wang. This replaces the earlier conservative affiliation-only introduction.
+
+JCR Q1 badges for TDSC, TIFS and TSC are based on the **Quartile (JIF)** column of the IEEE December 2025 title list: https://open.ieee.org/wp-content/uploads/IEEE-Title-List-December-2025.pdf . This is a dated snapshot, not a claim about the publication-year quartile or the latest 2026 JCR release. All four selected papers fall within these three journals. No artificial Q2 category is shown.
