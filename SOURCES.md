@@ -2,26 +2,40 @@
 
 Checked 2026-10-10.
 
-- Profile, affiliation and publication list: https://scholar.google.com/citations?user=QmkYAQgAAAAJ&hl=en
-- Email: https://doi.org/10.1155/2021/9995832
-- Research profile: https://www.researchgate.net/profile/Qingxuan-Wang-2
-- Bibliographic cross-check: https://dblp.org/pid/251/1585.html
-- Research group: https://cssnku.github.io/publications/
+## Profile
+
+- Google Scholar: https://scholar.google.com/citations?user=QmkYAQgAAAAJ&hl=en
+- ResearchGate: https://www.researchgate.net/profile/Qingxuan-Wang-2
+- DBLP: https://dblp.org/pid/251/1585.html
+- Nankai research group: https://cssnku.github.io/publications/
 - ACSAC 2022 Artifact Committee: https://www.acsac.org/2022/committees/artifact/
-- CCF-A TDSC/TIFS: https://www.ccf.org.cn/Academic_Evaluation/NIS/
-- CCF-A TSC: https://www.ccf.org.cn/Academic_Evaluation/TCSE_SS_PDL/
 
-## Selected papers
+The site owner confirmed the current positions: postdoctoral researcher and assistant research fellow at Nankai University, working with Professor Ding Wang.
 
-- Leakage attacks: https://doi.org/10.1109/TDSC.2025.3646469 — 2026, 23(3), 4526–4542.
-- Security proofs: https://doi.org/10.1109/TIFS.2022.3227753 — 2023, 18, 597–612.
-- Quantum2FA: https://doi.org/10.1109/TDSC.2021.3129512 — 2023, 20(1), 193–208.
-- Data outsourcing: https://doi.org/10.1109/TSC.2020.3041324 — 2022, 15(4), 2226–2231.
+## Classification
 
-The homepage displays only papers in verified CCF-A venues. It does not claim this selection is the full publication list. Rank badges link to the official CCF journal lists. JCR badges use the dated publisher source documented below; no ESI badges are inferred. Author order is preserved; no correspondence markers are inferred. Role descriptions differ across public sources, so the site states only the verified university affiliation.
+- CCF TDSC/TIFS and ICICS: https://www.ccf.org.cn/Academic_Evaluation/NIS/
+- CCF TSC: https://www.ccf.org.cn/Academic_Evaluation/TCSE_SS_PDL/
+- CCF JSA: https://www.ccf.org.cn/Academic_Evaluation/ARCH_DCP_SS/
+- IEEE JCR quartiles: https://open.ieee.org/wp-content/uploads/IEEE-Title-List-December-2025.pdf
+- JSA JCR Q1 cross-check: https://doctorat.upc.edu/en/programmes/computer-architecture
 
-## Profile and JCR update (2026-10-10)
+CCF and JCR badges are independent. The current CCF computer-networking list does not contain IEEE Communications Letters, so it receives only the verified JCR Q2 badge. Security and Communication Networks receives no current CCF or JCR badge.
 
-The site owner confirmed the current positions: postdoctoral researcher and assistant research fellow at Nankai University, working with Professor Ding Wang. This replaces the earlier conservative affiliation-only introduction.
+## Publications
 
-JCR Q1 badges for TDSC, TIFS and TSC are based on the **Quartile (JIF)** column of the IEEE December 2025 title list: https://open.ieee.org/wp-content/uploads/IEEE-Title-List-December-2025.pdf . This is a dated snapshot, not a claim about the publication-year quartile or the latest 2026 JCR release. All four selected papers fall within these three journals. No artificial Q2 category is shown.
+- https://doi.org/10.1109/TDSC.2025.3646469
+- https://doi.org/10.1016/j.sysarc.2025.103670
+- https://cssnku.github.io/uploads/publications/ICICS2026_5416_CameraReady.pdf
+- https://doi.org/10.1109/TIFS.2022.3227753
+- https://doi.org/10.1109/TDSC.2021.3129512
+- https://doi.org/10.1109/TSC.2020.3041324
+- https://doi.org/10.1016/j.sysarc.2021.102206
+- https://doi.org/10.1155/2021/9995832
+- https://doi.org/10.1109/LCOMM.2019.2927204
+
+The page lists all nine publications currently confirmed from the author profiles and research-group page. Author order is preserved. No correspondence markers are inferred.
+
+## Image
+
+The profile image is an original AI-generated fictional scholar-sorcerer portrait. It does not reproduce a film character or actor likeness.
