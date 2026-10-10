@@ -35,7 +35,9 @@ CCF and JCR badges are independent. The current CCF computer-networking list doe
 - https://doi.org/10.1155/2021/9995832
 - https://doi.org/10.1109/LCOMM.2019.2927204
 
-The page lists all ten publications currently confirmed from the author profiles, research-group page, and the site owner. Author order is preserved. No correspondence markers are inferred.
+The page lists all ten publications currently confirmed from the author profiles, research-group page, and the site owner. Author order is preserved. Correspondence markers are added only when explicitly confirmed.
+
+The site owner confirmed that Qingxuan Wang is a corresponding author of the three listed 2026 publications and “Revisiting a Multifactor Authentication Scheme in Industrial IoT” (2021). These entries use an asterisk on the homepage.
 
 ## Image
 

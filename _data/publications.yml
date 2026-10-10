@@ -5,6 +5,7 @@
     - name: Meijia Xu
     - name: Qingxuan Wang
       self: true
+      corresponding: true
   venue_code: TDSC
   venue: IEEE Transactions on Dependable and Secure Computing
   details: "23(3): 4526–4542."
@@ -34,6 +35,7 @@
     - name: Zonghua Zhang
     - name: Qingxuan Wang
       self: true
+      corresponding: true
   venue_code: JSA
   venue: Journal of Systems Architecture
   details: "173: 103670."
@@ -59,6 +61,7 @@
     - name: Yanduo Fu
     - name: Qingxuan Wang
       self: true
+      corresponding: true
     - name: Ding Wang
   venue_code: ICICS
   venue: 28th International Conference on Information and Communications Security
@@ -217,6 +220,7 @@
     - name: Shuhong Hong
     - name: Qingxuan Wang
       self: true
+      corresponding: true
   venue_code: SCN
   venue: Security and Communication Networks
   details: Article 9995832.

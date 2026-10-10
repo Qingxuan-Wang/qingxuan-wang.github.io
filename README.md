@@ -81,6 +81,7 @@
 规则：
 
 - `self: true` 会加粗本人姓名。
+- `corresponding: true` 会在作者姓名后添加通讯作者上标 `*`。
 - `filters` 可填写 `ccf-a`、`ccf-b`、`ccf-c`、`jcr-q1`、`jcr-q2`，多个标签以空格分隔。
 - 没有可靠分类时写 `filters: ""`，并省略 `ccf` 和 `jcr`。
 - 会议通常没有 JCR 标签。

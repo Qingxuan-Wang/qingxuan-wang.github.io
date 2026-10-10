@@ -41,7 +41,9 @@ section { padding: 21px 20px; margin-bottom: 6px; }
 .timeline-item p { margin: 0; color: #68717a; font-size: 13px; }
 .section-heading { display: flex; justify-content: space-between; gap: 18px; align-items: flex-start; }
 .small-link { margin-top: 5px; font-size: 12px; white-space: nowrap; }
-.publication-count { min-height: 20px; margin: -7px 0 0; color: var(--muted); font-size: 12px; }
+.publication-meta { display: flex; min-height: 20px; align-items: baseline; gap: 6px; margin: -7px 0 0; color: var(--muted); font-size: 12px; }
+.publication-count, .author-note { margin: 0; }
+.corresponding-marker { margin-left: 1px; color: #934331; font-size: .78em; }
 .publication-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 14px; margin: 18px 0 22px; }
 .filter-group { display: flex; flex-wrap: wrap; gap: 7px; }
 .filter-button { appearance: none; border: 1px solid #d3dbe1; border-radius: 999px; padding: 6px 11px; background: #fff; color: #4f5962; font: inherit; font-size: 12px; line-height: 1.2; cursor: pointer; }

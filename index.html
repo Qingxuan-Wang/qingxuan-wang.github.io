@@ -85,7 +85,11 @@ layout: null
       <div class="section-heading">
         <div>
           <h2 id="publications-title">Publications</h2>
-          <p id="publication-count" class="publication-count" aria-live="polite"></p>
+          <div class="publication-meta">
+            <p id="publication-count" class="publication-count" aria-live="polite"></p>
+            <span aria-hidden="true">·</span>
+            <p class="author-note"><sup>*</sup> Corresponding author</p>
+          </div>
         </div>
         <a class="small-link" href="assets/publications.bib" download>Download BibTeX ↓</a>
       </div>
@@ -125,7 +129,7 @@ layout: null
           </div>
           <h3{% if publication.language %} lang="{{ publication.language }}"{% endif %}>{% if publication.url %}<a href="{{ publication.url }}">{% endif %}{{ publication.title }}{% if publication.url %}</a>{% endif %}</h3>
           {% assign author_separator = publication.author_separator | default: ", " %}
-          <p class="authors"{% if publication.language %} lang="{{ publication.language }}"{% endif %}>{% for author in publication.authors %}{% if author.self %}<strong>{% endif %}{{ author.name }}{% if author.self %}</strong>{% endif %}{% unless forloop.last %}{{ author_separator }}{% endunless %}{% endfor %}</p>
+          <p class="authors"{% if publication.language %} lang="{{ publication.language }}"{% endif %}>{% for author in publication.authors %}{% if author.self %}<strong>{% endif %}{{ author.name }}{% if author.corresponding %}<sup class="corresponding-marker" aria-label=" corresponding author">*</sup>{% endif %}{% if author.self %}</strong>{% endif %}{% unless forloop.last %}{{ author_separator }}{% endunless %}{% endfor %}</p>
           <p class="venue"{% if publication.language %} lang="{{ publication.language }}"{% endif %}><em>{{ publication.venue }}</em>, {{ publication.details }}</p>
           {% if publication.url %}<div class="paper-links"><a href="{{ publication.url }}">Paper ↗</a></div>{% endif %}
         </article>
