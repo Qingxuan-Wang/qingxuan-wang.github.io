@@ -6,6 +6,15 @@ const emptyState = document.querySelector("#empty-state");
 
 let activeFilter = "ccf-a";
 
+document.querySelectorAll("a[href]").forEach((link) => {
+  const url = new URL(link.href, window.location.href);
+  const isWebLink = url.protocol === "http:" || url.protocol === "https:";
+  if (isWebLink && url.origin !== window.location.origin) {
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+  }
+});
+
 function applyFilters() {
   const year = yearSelect.value;
   let visible = 0;
