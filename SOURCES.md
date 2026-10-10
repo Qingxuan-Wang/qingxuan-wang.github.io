@@ -30,11 +30,12 @@ CCF and JCR badges are independent. The current CCF computer-networking list doe
 - https://doi.org/10.1109/TIFS.2022.3227753
 - https://doi.org/10.1109/TDSC.2021.3129512
 - https://doi.org/10.1109/TSC.2020.3041324
+- 王庆璇，汪定：《无线传感网络中基于非抗窜扰智能卡的双因素认证协议》，《信息对抗技术》2022 年第 1 卷第 2 期，第 16–37 页（网站所有者提供）。
 - https://doi.org/10.1016/j.sysarc.2021.102206
 - https://doi.org/10.1155/2021/9995832
 - https://doi.org/10.1109/LCOMM.2019.2927204
 
-The page lists all nine publications currently confirmed from the author profiles and research-group page. Author order is preserved. No correspondence markers are inferred.
+The page lists all ten publications currently confirmed from the author profiles, research-group page, and the site owner. Author order is preserved. No correspondence markers are inferred.
 
 ## Image
 
