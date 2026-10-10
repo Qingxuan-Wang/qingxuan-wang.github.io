@@ -1,222 +1,234 @@
 # Qingxuan Wang — Academic Homepage
 
-这是 Qingxuan Wang 的个人学术主页，线上地址为：
+这是 Qingxuan Wang 的个人学术主页：**https://qingxuan-wang.github.io/**
 
-**https://qingxuan-wang.github.io/**
+网站使用 GitHub Pages 原生支持的 Jekyll。页面样式仍由固定模板控制，日常维护主要编辑 Markdown 和 YAML，不需要手写论文卡片 HTML。
 
-网站采用纯 HTML、CSS 和 JavaScript 编写，不需要安装主题、Ruby 或 Node.js。推送到 GitHub 仓库的 `main` 分支后，GitHub Pages 会自动更新。
+## 最常用的文件
 
-## 推荐维护方式：直接告诉智能体要改什么
+| 想修改的内容 | 编辑文件 |
+| --- | --- |
+| 首页个人简介 | `_includes/introduction.md` |
+| Research 文字 | `_includes/research.md` |
+| 姓名、头像、邮箱、学术主页链接、学术服务 | `_data/site.yml` |
+| 论文、CCF/JCR 标签、年份、BibTeX | `_data/publications.yml` |
+| 教育经历 | `_data/education.yml` |
+| 工作经历 | `_data/experience.yml` |
+| 页面样式 | `style.css` |
+| 筛选与外链行为 | `script.js` |
+| 固定页面模板 | `index.html`，一般不需要修改 |
+| 信息与分类依据 | `SOURCES.md` |
 
-维护者通常不需要手动编辑 HTML。请在智能体中打开本仓库，然后用自然语言描述修改内容。建议在每次任务开头加入：
+`assets/publications.bib` 会从 `_data/publications.yml` 中的 `bibtex` 字段自动生成，因此论文信息只有一个数据源。年份筛选也会根据论文数据自动生成。
+
+## 推荐方式：直接让智能体维护
+
+在智能体中打开本仓库，用自然语言说明修改内容即可。建议每次任务开头写：
 
 ```text
-请先阅读 README.md 和 SOURCES.md，再修改这个个人主页。
-修改完成后请在本地预览，检查桌面端、手机端和论文筛选功能；确认无误后提交并推送到 main 分支。
-不要编造个人信息、论文信息或 CCF/JCR 分区；无法确认的内容请保留为空或向我说明。
+请先阅读 README.md 和 SOURCES.md，再维护这个个人学术主页。
+页面由 Jekyll 生成，日常内容优先修改 _data 和 _includes，不要把内容重新硬编码到 index.html。
+请保留现有页面结构、CSS 类名、默认 CCF-A 筛选和外链新标签页行为。
+不要编造个人信息、论文元数据或 CCF/JCR 分区。
+修改后请构建网站，并检查桌面端、手机端、论文筛选和 BibTeX，再提交并推送到 main。
 ```
 
-智能体应完成整个维护流程：核对资料、修改网页、同步 BibTeX 和来源记录、预览测试、提交 Git，并在得到维护者授权后推送上线。
+## 添加论文
 
-## 常用修改示例
-
-### 添加论文
-
-最好提供完整引用、DOI 或论文页面。如果只提供部分信息，可以让智能体从作者主页、出版社、DBLP、研究组页面和 CCF 官方目录中核对。
+最好提供完整引用、DOI 或论文页面：
 
 ```text
 请添加下面这篇论文：
 
 [粘贴完整引用、DOI 或论文链接]
 
-请完成以下工作：
-1. 加入 Publications 卡片，按年份放置；
-2. 加入 assets/publications.bib；
+请核对作者顺序、年份、卷期、页码、DOI、CCF 和 JCR 分类，并完成：
+1. 在 _data/publications.yml 中按年份倒序加入论文；
+2. 同步写入该论文的 bibtex 字段；
 3. 在 SOURCES.md 记录来源；
-4. 核对 CCF 和 JCR 标签，不确定时不要猜；
-5. 如果出现新年份，同步更新年份筛选器；
-6. 保持默认显示 CCF-A；
-7. 检查 All、分类和年份筛选数量；
-8. 提交并推送到 main 分支。
+4. 不确定的分类不要猜；
+5. 构建并检查卡片、All、分类、年份筛选和下载的 BibTeX；
+6. 保持样式不变，提交并推送到 main。
 ```
 
-如果是尚未正式出版的论文，请明确写明状态：
+论文数据示例：
 
-```text
-这篇论文已被 ICICS 2027 接收，目前没有卷期和页码。请标记为 Accepted，后续正式出版后再更新。
+```yaml
+- id: example2027paper
+  title: Paper Title
+  authors:
+    - name: Author A
+    - name: Qingxuan Wang
+      self: true
+    - name: Author B
+  venue_code: VENUE
+  venue: Full Journal or Conference Name
+  details: "12(3): 100–120."
+  year: 2027
+  filters: ccf-b jcr-q1
+  ccf: B
+  jcr: Q1
+  url: https://doi.org/...
+  bibtex: |
+    @article{example2027paper,
+      title = {Paper Title},
+      author = {Author A and Qingxuan Wang and Author B},
+      journal = {Full Journal Name},
+      year = {2027}
+    }
 ```
 
-如果论文没有 CCF 或 JCR 标签，也可以正常加入。它会在 `All` 和对应年份下显示。
+规则：
 
-### 更新论文信息
+- `self: true` 会加粗本人姓名。
+- `filters` 可填写 `ccf-a`、`ccf-b`、`ccf-c`、`jcr-q1`、`jcr-q2`，多个标签以空格分隔。
+- 没有可靠分类时写 `filters: ""`，并省略 `ccf` 和 `jcr`。
+- 会议通常没有 JCR 标签。
+- 新年份会自动进入年份下拉框，不需要修改 HTML。
+- 没有论文链接时可以省略 `url`。
+- Accepted 论文可以在 `details` 中写 `Accepted.`，正式出版后再更新。
+
+## 更新论文
 
 ```text
-请把论文“论文标题”的状态从 Accepted 更新为正式出版：
+请把论文“论文标题”从 Accepted 更新为正式出版：
 期刊/会议：……
 年份：……
 卷期：……
 页码：……
 DOI：……
 
-请同步修改论文卡片、BibTeX 和 SOURCES.md，并重新核对分类标签。
+请只修改 _data/publications.yml 和 SOURCES.md；确认生成的论文卡片和 publications.bib 同步更新。
 ```
 
-### 添加求学经历
+## 修改简介和研究方向
 
-当前页面没有独立的教育经历区。可以让智能体新增简洁的 `Education` 区域，保持现有 Jon Barron 风格。
-
-```text
-请在 Research 和 Publications 之间增加 Education 区域，按时间倒序展示：
-
-- 2020–2024，南开大学，信息安全，博士，导师：……
-- 2017–2020，中国地质大学（武汉），信息安全，硕士，导师：……
-- 2013–2017，学校名称，专业名称，学士
-
-请使用朴素的时间线或紧凑列表，不要做复杂动画。学校链接在新标签页打开，手机端不能横向溢出。
-```
-
-建议提供以下字段：
-
-- 起止年份；
-- 学校与学院；
-- 学位和专业；
-- 导师；
-- 学位论文题目（可选）；
-- 学校、导师或论文链接（可选）。
-
-### 添加工作经历
+个人简介使用普通 Markdown：
 
 ```text
-请增加 Experience 区域，按时间倒序展示以下工作经历：
-
-- 2024–至今，南开大学，博士后、助理研究员，合作导师：汪定教授
-- [其他经历]
-
-请保持版式简洁，并让机构和导师链接在新标签页打开。
-```
-
-建议提供职位、机构、院系、起止时间、合作导师或负责人，以及一两句研究职责。没有明确来源的信息不要让智能体自行补全。
-
-### 修改个人简介或研究方向
-
-可以直接提供新文本：
-
-```text
-请把首页个人简介替换为下面这段英文，其他内容不变：
+请把 _includes/introduction.md 改成下面这段英文，其他内容不变：
 
 [粘贴新文本]
 
-检查语法和表达，但不要增加我没有提供的履历、奖项或研究成果。
-```
-
-也可以只描述目标：
-
-```text
-请把个人简介写得更简洁，保留以下事实：南开大学博士后、助理研究员、合作导师为汪定教授，研究方向为多因素认证和应用密码学。先给出最终文本，再直接更新页面。
-```
-
-### 修改头像、邮箱或主页链接
-
-```text
-请把头像替换为这个文件：[文件路径]。
-裁切为适合圆形头像的构图，压缩网页文件大小，更新社交分享图片，并检查桌面端和手机端效果。
+可以修正语法，但不要增加我没有提供的履历、奖项或成果。构建后确认页面布局没有变化。
 ```
 
 ```text
-请把南开大学链接改为 https://cc.nankai.edu.cn/main.htm ，把邮箱改为 name@example.com。所有外部网页链接继续在新标签页打开。
+请更新 _includes/research.md，保留多因素认证、应用密码学、协议安全和后量子安全四个方向，写成两个简洁段落。
 ```
 
-### 调整论文分类和默认筛选
+Markdown 中可以直接使用链接和加粗：
+
+```markdown
+I work at [Nankai University](https://cc.nankai.edu.cn/main.htm).
+
+My research focuses on **authentication and applied cryptography**.
+```
+
+## 添加教育经历
+
+`_data/education.yml` 当前为空。加入数据后，页面会自动出现 `Education` 区域：
+
+```yaml
+- period: 2020–2024
+  institution: Nankai University
+  url: https://cc.nankai.edu.cn/main.htm
+  degree: Ph.D.
+  field: Information Security
+  details: "Advisor: Professor ..."
+
+- period: 2017–2020
+  institution: University Name
+  degree: M.S.
+  field: Information Security
+```
+
+给智能体的指令：
 
 ```text
-请根据最新版 CCF 官方目录和可核验的 JCR 数据，重新检查全部论文标签。CCF 与 JCR 分开标注；会议论文不要添加 JCR 标签。保留来源和核验日期。
+请把下面的求学经历加入 _data/education.yml，按时间倒序排列。不要修改现有页面样式；构建后检查 Education 区域的桌面端和手机端布局。
+
+[粘贴学校、专业、学位、年份、导师和链接]
+```
+
+## 添加工作经历
+
+`_data/experience.yml` 当前为空。加入数据后，页面会自动出现 `Experience` 区域：
+
+```yaml
+- period: 2024–Present
+  institution: Nankai University
+  url: https://cc.nankai.edu.cn/main.htm
+  role: Postdoctoral Researcher and Assistant Research Fellow
+  details: "Working with Professor Ding Wang"
+```
+
+给智能体的指令：
+
+```text
+请把下面的工作经历加入 _data/experience.yml，按时间倒序排列。核对机构链接，不要补充未提供的职位或职责。
+
+[粘贴职位、机构、院系、年份、合作导师和说明]
+```
+
+## 修改头像、邮箱或链接
+
+姓名、头像路径、联系链接和 Academic Service 都集中在 `_data/site.yml`。
+
+```text
+请把头像替换为这个文件：[文件路径]。更新 _data/site.yml 中的 profile_image 和 profile_alt，压缩网页图片大小，并检查圆形裁切效果。
 ```
 
 ```text
-请把论文默认筛选从 CCF-A 改为 All，并检查页面首次打开时的数量与按钮状态。
+请把邮箱改为 name@example.com，并把学校链接改为 https://example.com。所有外部网页链接继续在新标签页打开。
 ```
 
-## 论文分类规则
+学校和导师链接目前写在 `_includes/introduction.md`；Email、Scholar、ResearchGate、DBLP 写在 `_data/site.yml`。
 
-- CCF 和 JCR 是两套独立分类，可以同时出现。
-- CCF 标签应以 CCF 官方目录为准。
-- JCR 标签必须有可核验的年度或出版方来源，不能用中科院分区或 SJR 分区代替。
-- 会议论文通常只有 CCF 标签，没有 JCR 标签。
-- 没有可靠分类依据的论文不显示分类标签，但仍保留在 `All` 和年份筛选中。
-- 页面年份采用正式卷期年份；仅在线发表或 Accepted 论文应在来源记录中说明。
-- 作者顺序、通讯作者标记、卷期、页码和 DOI 都应从可靠来源核对。
+## CCF 与 JCR 规则
 
-分类和论文来源集中记录在 [`SOURCES.md`](SOURCES.md)。修改论文时应同时更新该文件。
+- CCF 和 JCR 是两套独立分类，可以同时显示。
+- CCF 标签以 CCF 官方目录为准。
+- JCR 标签必须有可核验的 JIF Quartile 来源，不能用中科院分区或 SJR 代替。
+- 同一期刊可能属于多个学科，应在 `SOURCES.md` 记录采用的年份与口径。
+- 没有可靠依据时不显示标签，论文仍会出现在 `All` 和对应年份中。
+- 作者顺序、通讯作者、卷期、页码和 DOI 均应从可靠来源核对。
 
-## 文件说明
+## 本地构建和预览
 
-| 文件 | 用途 |
-| --- | --- |
-| `index.html` | 个人简介、研究方向、论文卡片、学术服务及页面结构 |
-| `style.css` | 桌面端、手机端、论文卡片和筛选器样式 |
-| `script.js` | 论文分类与年份筛选，以及外部链接的新标签页行为 |
-| `assets/publications.bib` | 页面提供下载的完整 BibTeX |
-| `assets/profile-mystic.png` | 当前头像 |
-| `SOURCES.md` | 个人信息、论文元数据和分类依据 |
-| `.nojekyll` | 让 GitHub Pages 直接发布静态文件 |
+仓库根目录已经包含 `_config.yml`。安装 Jekyll 后运行：
 
-## 手动添加论文时的结构
-
-如果无法使用智能体，可以在 `index.html` 的 `.publication-grid` 中复制一张现有卡片。分类写在 `data-tags`，年份写在 `data-year`：
-
-```html
-<article class="publication-card" data-tags="ccf-b jcr-q1" data-year="2027">
-  <div class="paper-heading">
-    <span class="venue-tag">VENUE</span>
-    <span class="rank-tag rank-b">CCF-B</span>
-    <span class="jcr-tag">JCR Q1</span>
-    <span class="year">2027</span>
-  </div>
-  <h3><a href="https://doi.org/...">Paper Title</a></h3>
-  <p class="authors">Author A, <strong>Qingxuan Wang</strong>, Author B</p>
-  <p class="venue"><em>Journal or Conference</em>, volume(issue): pages.</p>
-  <div class="paper-links"><a href="https://doi.org/...">Paper ↗</a></div>
-</article>
+```bash
+jekyll serve
 ```
 
-可用的筛选标签为：
+访问 `http://127.0.0.1:4000/`。
 
-- `ccf-a`
-- `ccf-b`
-- `ccf-c`
-- `jcr-q1`
-- `jcr-q2`
+只构建、不启动服务器：
 
-没有分类时使用 `data-tags=""`。如果增加了新年份，还需要在 `#year-select` 中加入相应选项，并同步更新 `assets/publications.bib` 和 `SOURCES.md`。
+```bash
+jekyll build
+```
+
+生成的网站位于 `_site/`。不要手动编辑 `_site/`，因为每次构建都会覆盖它。
 
 ## 修改完成后的检查
 
-请让智能体至少检查以下内容：
-
-1. 首页可以正常打开，头像和样式文件加载成功；
-2. 默认选中 CCF-A，显示数量正确；
-3. CCF-A/B/C、JCR Q1/Q2 和 All 都能正确切换；
-4. 年份筛选可以与分类筛选组合使用；
-5. 所有论文在 All 中均可找到；
-6. 外部网页链接在新标签页打开；
-7. BibTeX 下载链接仍为站内下载；
-8. 手机端为单列卡片，没有横向滚动；
-9. `git diff --check` 没有格式错误；
-10. 推送后访问线上网站确认新内容已经生效。
-
-## 本地预览
-
-在仓库根目录启动任意静态文件服务器，例如：
-
-```bash
-python -m http.server 8766 --bind 127.0.0.1
-```
-
-然后访问 `http://127.0.0.1:8766/`。
+1. `jekyll build` 成功，无 YAML 或 Liquid 错误。
+2. 首页文字、头像和样式与修改前一致或符合本次要求。
+3. 默认选中 CCF-A，显示数量正确。
+4. CCF-A/B/C、JCR Q1/Q2 和 All 均能正确切换。
+5. 年份筛选可以与分类筛选组合使用。
+6. 所有论文都能在 All 中找到。
+7. `assets/publications.bib` 的构建结果包含全部论文且没有 Jekyll 头信息。
+8. 外部网页链接在新标签页打开，BibTeX 保持站内下载。
+9. 手机端为单列卡片，没有横向滚动。
+10. `git diff --check` 没有格式错误。
+11. 推送后检查线上页面确实已经更新。
 
 ## 发布
 
-GitHub Pages 从 `main` 分支根目录发布。修改完成后提交并推送：
+GitHub Pages 会自动处理 Jekyll 并从 `main` 分支发布：
 
 ```bash
 git add .
@@ -224,17 +236,15 @@ git commit -m "Update academic homepage"
 git push origin main
 ```
 
-通常等待几十秒即可在 https://qingxuan-wang.github.io/ 看到更新。发布后应再次检查线上页面，而不能只依赖本地预览。
+通常等待几十秒即可在 https://qingxuan-wang.github.io/ 看到更新。
 
 ## 一条完整的维护指令
 
-维护者也可以直接把下面这段发给智能体，再补充具体资料：
-
 ```text
-请维护这个个人学术主页。先阅读 README.md 和 SOURCES.md，并检查当前 Git 状态。
+请维护这个 Jekyll 个人学术主页。先阅读 README.md 和 SOURCES.md，并检查 Git 状态。
 
 本次修改内容：
-[在这里写要新增或修改的内容]
+[填写新增或修改内容]
 
-请核对公开来源，不要编造信息。同步修改网页、BibTeX 和来源记录；保持现有简洁布局、默认 CCF-A 筛选和外链新标签页行为。完成后进行桌面端、手机端、筛选器和链接检查，展示修改结果，然后提交并推送到 main 分支，最后确认 GitHub Pages 已经更新。
+内容优先写入 _data/*.yml 和 _includes/*.md，不要把数据硬编码回 index.html。核对公开来源，不要编造信息。保持当前视觉样式、CSS 类名、默认 CCF-A 筛选和外链新标签页行为。完成后构建网站，对比桌面端和手机端，测试全部论文筛选与 BibTeX，然后提交并推送到 main，最后确认 GitHub Pages 已更新。
 ```

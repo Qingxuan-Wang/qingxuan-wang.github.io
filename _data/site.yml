@@ -1,0 +1,26 @@
+name: Qingxuan Wang
+page_title: Qingxuan Wang | Nankai University
+description: Qingxuan Wang is a postdoctoral researcher and assistant research fellow at Nankai University, working on authentication and applied cryptography.
+social_description: Authentication, applied cryptography, and protocol security.
+profile_image: assets/profile-mystic.png
+profile_alt: AI-generated mystical scholar avatar
+
+links:
+  - label: Email
+    url: mailto:wangqingxuan@mail.nankai.edu.cn
+  - label: Scholar
+    url: https://scholar.google.com/citations?user=QmkYAQgAAAAJ&hl=en
+  - label: ResearchGate
+    url: https://www.researchgate.net/profile/Qingxuan-Wang-2
+  - label: DBLP
+    url: https://dblp.org/pid/251/1585.html
+
+service:
+  - role: Artifact Committee
+    label: ACSAC 2022
+    url: https://www.acsac.org/2022/committees/artifact/
+
+footer_credit:
+  label: Jon Barron
+  url: https://jonbarron.info/
+

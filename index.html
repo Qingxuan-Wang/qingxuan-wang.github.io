@@ -1,16 +1,20 @@
+---
+layout: null
+---
+{% assign profile = site.data.site %}
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Qingxuan Wang | Nankai University</title>
-  <meta name="description" content="Qingxuan Wang is a postdoctoral researcher and assistant research fellow at Nankai University, working on authentication and applied cryptography.">
-  <link rel="canonical" href="https://qingxuan-wang.github.io/">
-  <meta property="og:title" content="Qingxuan Wang | Nankai University">
-  <meta property="og:description" content="Authentication, applied cryptography, and protocol security.">
+  <title>{{ profile.page_title }}</title>
+  <meta name="description" content="{{ profile.description }}">
+  <link rel="canonical" href="{{ '/' | absolute_url }}">
+  <meta property="og:title" content="{{ profile.page_title }}">
+  <meta property="og:description" content="{{ profile.social_description }}">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://qingxuan-wang.github.io/">
-  <meta property="og:image" content="https://qingxuan-wang.github.io/assets/profile-mystic.png">
+  <meta property="og:url" content="{{ '/' | absolute_url }}">
+  <meta property="og:image" content="{{ profile.profile_image | absolute_url }}">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
@@ -21,28 +25,61 @@
     <header class="intro" id="about">
       <div class="profile-grid">
         <div class="profile-copy">
-          <h1>Qingxuan Wang</h1>
-          <p>I am a postdoctoral researcher and assistant research fellow at <a href="https://cc.nankai.edu.cn/main.htm">Nankai University</a>, working with <a href="https://cssnku.github.io/">Professor Ding Wang</a>.</p>
-          <p>My research focuses on <strong>authentication and applied cryptography</strong>. I study the design and security analysis of password-based multi-factor authentication protocols, with particular interest in whether their security assumptions and proofs remain sound under realistic threats.</p>
-          <p>I received my Ph.D. degree in Information Security from Nankai University in 2024.</p>
+          <h1>{{ profile.name }}</h1>
+          {% capture introduction %}{% include introduction.md %}{% endcapture %}
+          {{ introduction | markdownify }}
           <div class="contact-links" aria-label="Academic profiles">
-            <a href="mailto:wangqingxuan@nankai.edu.cn">Email</a><span>/</span>
-            <a href="https://scholar.google.com/citations?user=QmkYAQgAAAAJ&amp;hl=en">Scholar</a><span>/</span>
-            <a href="https://www.researchgate.net/profile/Qingxuan-Wang-2">ResearchGate</a><span>/</span>
-            <a href="https://dblp.org/pid/251/1585.html">DBLP</a>
+            {% for link in profile.links %}
+              <a href="{{ link.url }}">{{ link.label }}</a>{% unless forloop.last %}<span>/</span>{% endunless %}
+            {% endfor %}
           </div>
         </div>
         <figure class="portrait-wrap">
           <div class="portrait-fallback" aria-hidden="true">QW</div>
-          <img class="portrait" src="assets/profile-mystic.png" alt="AI-generated mystical scholar avatar">
+          <img class="portrait" src="{{ profile.profile_image }}" alt="{{ profile.profile_alt }}">
         </figure>
       </div>
     </header>
 
     <section id="research" aria-labelledby="research-title">
       <h2 id="research-title">Research</h2>
-      <p>My research interests include password-based and multi-factor authentication, protocol security, applied cryptography, and post-quantum security. My work has examined failures in authentication security proofs, the practical relevance of ephemeral secret leakage models, quantum-resistant two-factor authentication, and lattice-based cryptographic applications. I aim to develop authentication mechanisms whose security guarantees are both formally grounded and meaningful in real-world deployments.</p>
+      {% capture research %}{% include research.md %}{% endcapture %}
+      {{ research | markdownify }}
     </section>
+
+    {% if site.data.experience and site.data.experience.size > 0 %}
+    <section id="experience" aria-labelledby="experience-title">
+      <h2 id="experience-title">Experience</h2>
+      <div class="timeline-list">
+        {% for item in site.data.experience %}
+        <article class="timeline-item">
+          <div class="timeline-period">{{ item.period }}</div>
+          <div>
+            <h3>{% if item.url %}<a href="{{ item.url }}">{% endif %}{{ item.institution }}{% if item.url %}</a>{% endif %}</h3>
+            <p>{{ item.role }}{% if item.details %} · {{ item.details }}{% endif %}</p>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    {% if site.data.education and site.data.education.size > 0 %}
+    <section id="education" aria-labelledby="education-title">
+      <h2 id="education-title">Education</h2>
+      <div class="timeline-list">
+        {% for item in site.data.education %}
+        <article class="timeline-item">
+          <div class="timeline-period">{{ item.period }}</div>
+          <div>
+            <h3>{% if item.url %}<a href="{{ item.url }}">{% endif %}{{ item.institution }}{% if item.url %}</a>{% endif %}</h3>
+            <p>{{ item.degree }}{% if item.field %} · {{ item.field }}{% endif %}{% if item.details %} · {{ item.details }}{% endif %}</p>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
 
     <section id="publications" aria-labelledby="publications-title">
       <div class="section-heading">
@@ -65,104 +102,46 @@
         <label class="year-filter">Year
           <select id="year-select">
             <option value="all">All years</option>
-            <option value="2026">2026</option>
-            <option value="2023">2023</option>
-            <option value="2022">2022</option>
-            <option value="2021">2021</option>
-            <option value="2019">2019</option>
+            {% assign publication_years = site.data.publications | map: "year" | uniq | sort | reverse %}
+            {% for year in publication_years %}<option value="{{ year }}">{{ year }}</option>{% endfor %}
           </select>
         </label>
       </div>
 
       <div class="publication-grid" id="publication-grid">
-        <article class="publication-card" data-tags="ccf-a jcr-q1" data-year="2026">
-          <div class="paper-heading"><span class="venue-tag">TDSC</span><span class="rank-tag">CCF-A</span><span class="jcr-tag">JCR Q1</span><span class="year">2026</span></div>
-          <h3><a href="https://doi.org/10.1109/TDSC.2025.3646469">Understanding Ephemeral Secret Leakage Attacks in Password-Based Multi-Factor Authentication for Mobile Devices</a></h3>
-          <p class="authors">Ding Wang, Meijia Xu, <strong>Qingxuan Wang</strong></p>
-          <p class="venue"><em>IEEE Transactions on Dependable and Secure Computing</em>, 23(3): 4526–4542.</p>
-          <div class="paper-links"><a href="https://doi.org/10.1109/TDSC.2025.3646469">Paper ↗</a></div>
+        {% for publication in site.data.publications %}
+        <article class="publication-card" data-tags="{{ publication.filters }}" data-year="{{ publication.year }}">
+          <div class="paper-heading">
+            <span class="venue-tag">{{ publication.venue_code }}</span>
+            {% if publication.ccf %}
+              {% assign ccf_lower = publication.ccf | downcase %}
+              <span class="rank-tag{% unless publication.ccf == 'A' %} rank-{{ ccf_lower }}{% endunless %}">CCF-{{ publication.ccf }}</span>
+            {% endif %}
+            {% if publication.jcr %}
+              {% assign jcr_lower = publication.jcr | downcase %}
+              <span class="jcr-tag{% if publication.jcr == 'Q2' %} jcr-q2{% endif %}">JCR {{ publication.jcr }}</span>
+            {% endif %}
+            <span class="year">{{ publication.year }}</span>
+          </div>
+          <h3{% if publication.language %} lang="{{ publication.language }}"{% endif %}>{% if publication.url %}<a href="{{ publication.url }}">{% endif %}{{ publication.title }}{% if publication.url %}</a>{% endif %}</h3>
+          {% assign author_separator = publication.author_separator | default: ", " %}
+          <p class="authors"{% if publication.language %} lang="{{ publication.language }}"{% endif %}>{% for author in publication.authors %}{% if author.self %}<strong>{% endif %}{{ author.name }}{% if author.self %}</strong>{% endif %}{% unless forloop.last %}{{ author_separator }}{% endunless %}{% endfor %}</p>
+          <p class="venue"{% if publication.language %} lang="{{ publication.language }}"{% endif %}><em>{{ publication.venue }}</em>, {{ publication.details }}</p>
+          {% if publication.url %}<div class="paper-links"><a href="{{ publication.url }}">Paper ↗</a></div>{% endif %}
         </article>
-
-        <article class="publication-card" data-tags="ccf-b jcr-q1" data-year="2026">
-          <div class="paper-heading"><span class="venue-tag">JSA</span><span class="rank-tag rank-b">CCF-B</span><span class="jcr-tag">JCR Q1</span><span class="year">2026</span></div>
-          <h3><a href="https://doi.org/10.1016/j.sysarc.2025.103670">Universally Composable Multi-Factor Authentication Scheme for Rail Control Systems</a></h3>
-          <p class="authors">Xiaoya Hu, Hao Zhang, Ding Wang, Zonghua Zhang, <strong>Qingxuan Wang</strong></p>
-          <p class="venue"><em>Journal of Systems Architecture</em>, 173: 103670.</p>
-          <div class="paper-links"><a href="https://doi.org/10.1016/j.sysarc.2025.103670">Paper ↗</a></div>
-        </article>
-
-        <article class="publication-card" data-tags="ccf-c" data-year="2026">
-          <div class="paper-heading"><span class="venue-tag">ICICS</span><span class="rank-tag rank-c">CCF-C</span><span class="year">2026</span></div>
-          <h3><a href="https://cssnku.github.io/uploads/publications/ICICS2026_5416_CameraReady.pdf">An Empirical Measurement Study of Authentication Mechanisms in Cloud-Based Password Managers</a></h3>
-          <p class="authors">Yanduo Fu, <strong>Qingxuan Wang</strong>, Ding Wang</p>
-          <p class="venue"><em>28th International Conference on Information and Communications Security</em>. Accepted.</p>
-          <div class="paper-links"><a href="https://cssnku.github.io/uploads/publications/ICICS2026_5416_CameraReady.pdf">Paper ↗</a></div>
-        </article>
-
-        <article class="publication-card" data-tags="ccf-a jcr-q1" data-year="2023">
-          <div class="paper-heading"><span class="venue-tag">TIFS</span><span class="rank-tag">CCF-A</span><span class="jcr-tag">JCR Q1</span><span class="year">2023</span></div>
-          <h3><a href="https://doi.org/10.1109/TIFS.2022.3227753">Understanding Failures in Security Proofs of Multi-Factor Authentication for Mobile Devices</a></h3>
-          <p class="authors"><strong>Qingxuan Wang</strong>, Ding Wang</p>
-          <p class="venue"><em>IEEE Transactions on Information Forensics and Security</em>, 18: 597–612.</p>
-          <div class="paper-links"><a href="https://doi.org/10.1109/TIFS.2022.3227753">Paper ↗</a></div>
-        </article>
-
-        <article class="publication-card" data-tags="ccf-a jcr-q1" data-year="2023">
-          <div class="paper-heading"><span class="venue-tag">TDSC</span><span class="rank-tag">CCF-A</span><span class="jcr-tag">JCR Q1</span><span class="year">2023</span></div>
-          <h3><a href="https://doi.org/10.1109/TDSC.2021.3129512">Quantum2FA: Efficient Quantum-Resistant Two-Factor Authentication Scheme for Mobile Devices</a></h3>
-          <p class="authors"><strong>Qingxuan Wang</strong>, Ding Wang, Chi Cheng, Debiao He</p>
-          <p class="venue"><em>IEEE Transactions on Dependable and Secure Computing</em>, 20(1): 193–208.</p>
-          <div class="paper-links"><a href="https://doi.org/10.1109/TDSC.2021.3129512">Paper ↗</a></div>
-        </article>
-
-        <article class="publication-card" data-tags="ccf-a jcr-q1" data-year="2022">
-          <div class="paper-heading"><span class="venue-tag">TSC</span><span class="rank-tag">CCF-A</span><span class="jcr-tag">JCR Q1</span><span class="year">2022</span></div>
-          <h3><a href="https://doi.org/10.1109/TSC.2020.3041324">Analysis and Enhancement of a Lattice-Based Data Outsourcing Scheme With Public Integrity Verification</a></h3>
-          <p class="authors"><strong>Qingxuan Wang</strong>, Chi Cheng, Rui Xu, Jintai Ding, Zhe Liu</p>
-          <p class="venue"><em>IEEE Transactions on Services Computing</em>, 15(4): 2226–2231.</p>
-          <div class="paper-links"><a href="https://doi.org/10.1109/TSC.2020.3041324">Paper ↗</a></div>
-        </article>
-
-        <article class="publication-card" data-tags="" data-year="2022">
-          <div class="paper-heading"><span class="venue-tag">ICT</span><span class="year">2022</span></div>
-          <h3 lang="zh-CN">无线传感网络中基于非抗窜扰智能卡的双因素认证协议</h3>
-          <p class="authors" lang="zh-CN"><strong>王庆璇</strong>，汪定</p>
-          <p class="venue" lang="zh-CN"><em>信息对抗技术</em>，1(2)：16–37。</p>
-        </article>
-
-        <article class="publication-card" data-tags="ccf-b jcr-q1" data-year="2021">
-          <div class="paper-heading"><span class="venue-tag">JSA</span><span class="rank-tag rank-b">CCF-B</span><span class="jcr-tag">JCR Q1</span><span class="year">2021</span></div>
-          <h3><a href="https://doi.org/10.1016/j.sysarc.2021.102206">Understanding Security Failures of Anonymous Authentication Schemes for Cloud Environments</a></h3>
-          <p class="authors">Meijia Xu, Ding Wang, <strong>Qingxuan Wang</strong>, Qiaowen Jia</p>
-          <p class="venue"><em>Journal of Systems Architecture</em>, 118: 102206.</p>
-          <div class="paper-links"><a href="https://doi.org/10.1016/j.sysarc.2021.102206">Paper ↗</a></div>
-        </article>
-
-        <article class="publication-card" data-tags="" data-year="2021">
-          <div class="paper-heading"><span class="venue-tag">SCN</span><span class="year">2021</span></div>
-          <h3><a href="https://doi.org/10.1155/2021/9995832">Revisiting a Multifactor Authentication Scheme in Industrial IoT</a></h3>
-          <p class="authors">Ding Wang, Shuhong Hong, <strong>Qingxuan Wang</strong></p>
-          <p class="venue"><em>Security and Communication Networks</em>, Article 9995832.</p>
-          <div class="paper-links"><a href="https://doi.org/10.1155/2021/9995832">Paper ↗</a></div>
-        </article>
-
-        <article class="publication-card" data-tags="jcr-q2" data-year="2019">
-          <div class="paper-heading"><span class="venue-tag">COMML</span><span class="jcr-tag jcr-q2">JCR Q2</span><span class="year">2019</span></div>
-          <h3><a href="https://doi.org/10.1109/LCOMM.2019.2927204">Analysis and Improvement of a NTRU-Based Handover Authentication Scheme</a></h3>
-          <p class="authors"><strong>Qingxuan Wang</strong>, Chi Cheng, Ling Zuo</p>
-          <p class="venue"><em>IEEE Communications Letters</em>, 23(10): 1692–1695.</p>
-          <div class="paper-links"><a href="https://doi.org/10.1109/LCOMM.2019.2927204">Paper ↗</a></div>
-        </article>
+        {% endfor %}
       </div>
       <p class="empty-state" id="empty-state" hidden>No publications match these filters.</p>
     </section>
 
+    {% if profile.service and profile.service.size > 0 %}
     <section id="service" aria-labelledby="service-title">
       <h2 id="service-title">Academic Service</h2>
-      <p class="service-item"><span>Artifact Committee</span><a href="https://www.acsac.org/2022/committees/artifact/">ACSAC 2022</a></p>
+      {% for item in profile.service %}<p class="service-item"><span>{{ item.role }}</span><a href="{{ item.url }}">{{ item.label }}</a></p>{% endfor %}
     </section>
+    {% endif %}
 
-    <footer><span>Qingxuan Wang</span><span>Layout inspired by <a href="https://jonbarron.info/">Jon Barron</a>.</span></footer>
+    <footer><span>{{ profile.name }}</span><span>Layout inspired by <a href="{{ profile.footer_credit.url }}">{{ profile.footer_credit.label }}</a>.</span></footer>
   </main>
 </body>
 </html>

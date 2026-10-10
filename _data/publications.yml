@@ -1,0 +1,261 @@
+- id: wang2026leakage
+  title: Understanding Ephemeral Secret Leakage Attacks in Password-Based Multi-Factor Authentication for Mobile Devices
+  authors:
+    - name: Ding Wang
+    - name: Meijia Xu
+    - name: Qingxuan Wang
+      self: true
+  venue_code: TDSC
+  venue: IEEE Transactions on Dependable and Secure Computing
+  details: "23(3): 4526–4542."
+  year: 2026
+  filters: ccf-a jcr-q1
+  ccf: A
+  jcr: Q1
+  url: https://doi.org/10.1109/TDSC.2025.3646469
+  bibtex: |
+    @article{wang2026leakage,
+      title = {Understanding Ephemeral Secret Leakage Attacks in Password-Based Multi-Factor Authentication for Mobile Devices},
+      author = {Wang, Ding and Xu, Meijia and Wang, Qingxuan},
+      journal = {IEEE Transactions on Dependable and Secure Computing},
+      year = {2026},
+      volume = {23},
+      number = {3},
+      pages = {4526--4542},
+      doi = {10.1109/TDSC.2025.3646469}
+    }
+
+- id: hu2026universally
+  title: Universally Composable Multi-Factor Authentication Scheme for Rail Control Systems
+  authors:
+    - name: Xiaoya Hu
+    - name: Hao Zhang
+    - name: Ding Wang
+    - name: Zonghua Zhang
+    - name: Qingxuan Wang
+      self: true
+  venue_code: JSA
+  venue: Journal of Systems Architecture
+  details: "173: 103670."
+  year: 2026
+  filters: ccf-b jcr-q1
+  ccf: B
+  jcr: Q1
+  url: https://doi.org/10.1016/j.sysarc.2025.103670
+  bibtex: |
+    @article{hu2026universally,
+      title = {Universally Composable Multi-Factor Authentication Scheme for Rail Control Systems},
+      author = {Hu, Xiaoya and Zhang, Hao and Wang, Ding and Zhang, Zonghua and Wang, Qingxuan},
+      journal = {Journal of Systems Architecture},
+      year = {2026},
+      volume = {173},
+      pages = {103670},
+      doi = {10.1016/j.sysarc.2025.103670}
+    }
+
+- id: fu2026empirical
+  title: An Empirical Measurement Study of Authentication Mechanisms in Cloud-Based Password Managers
+  authors:
+    - name: Yanduo Fu
+    - name: Qingxuan Wang
+      self: true
+    - name: Ding Wang
+  venue_code: ICICS
+  venue: 28th International Conference on Information and Communications Security
+  details: Accepted.
+  year: 2026
+  filters: ccf-c
+  ccf: C
+  url: https://cssnku.github.io/uploads/publications/ICICS2026_5416_CameraReady.pdf
+  bibtex: |
+    @inproceedings{fu2026empirical,
+      title = {An Empirical Measurement Study of Authentication Mechanisms in Cloud-Based Password Managers},
+      author = {Fu, Yanduo and Wang, Qingxuan and Wang, Ding},
+      booktitle = {28th International Conference on Information and Communications Security},
+      year = {2026},
+      note = {Accepted}
+    }
+
+- id: wang2023proofs
+  title: Understanding Failures in Security Proofs of Multi-Factor Authentication for Mobile Devices
+  authors:
+    - name: Qingxuan Wang
+      self: true
+    - name: Ding Wang
+  venue_code: TIFS
+  venue: IEEE Transactions on Information Forensics and Security
+  details: "18: 597–612."
+  year: 2023
+  filters: ccf-a jcr-q1
+  ccf: A
+  jcr: Q1
+  url: https://doi.org/10.1109/TIFS.2022.3227753
+  bibtex: |
+    @article{wang2023proofs,
+      title = {Understanding Failures in Security Proofs of Multi-Factor Authentication for Mobile Devices},
+      author = {Wang, Qingxuan and Wang, Ding},
+      journal = {IEEE Transactions on Information Forensics and Security},
+      year = {2023},
+      volume = {18},
+      pages = {597--612},
+      doi = {10.1109/TIFS.2022.3227753}
+    }
+
+- id: wang2023quantum
+  title: "Quantum2FA: Efficient Quantum-Resistant Two-Factor Authentication Scheme for Mobile Devices"
+  authors:
+    - name: Qingxuan Wang
+      self: true
+    - name: Ding Wang
+    - name: Chi Cheng
+    - name: Debiao He
+  venue_code: TDSC
+  venue: IEEE Transactions on Dependable and Secure Computing
+  details: "20(1): 193–208."
+  year: 2023
+  filters: ccf-a jcr-q1
+  ccf: A
+  jcr: Q1
+  url: https://doi.org/10.1109/TDSC.2021.3129512
+  bibtex: |
+    @article{wang2023quantum,
+      title = {{Quantum2FA}: Efficient Quantum-Resistant Two-Factor Authentication Scheme for Mobile Devices},
+      author = {Wang, Qingxuan and Wang, Ding and Cheng, Chi and He, Debiao},
+      journal = {IEEE Transactions on Dependable and Secure Computing},
+      year = {2023},
+      volume = {20},
+      number = {1},
+      pages = {193--208},
+      doi = {10.1109/TDSC.2021.3129512}
+    }
+
+- id: wang2022outsourcing
+  title: Analysis and Enhancement of a Lattice-Based Data Outsourcing Scheme With Public Integrity Verification
+  authors:
+    - name: Qingxuan Wang
+      self: true
+    - name: Chi Cheng
+    - name: Rui Xu
+    - name: Jintai Ding
+    - name: Zhe Liu
+  venue_code: TSC
+  venue: IEEE Transactions on Services Computing
+  details: "15(4): 2226–2231."
+  year: 2022
+  filters: ccf-a jcr-q1
+  ccf: A
+  jcr: Q1
+  url: https://doi.org/10.1109/TSC.2020.3041324
+  bibtex: |
+    @article{wang2022outsourcing,
+      title = {Analysis and Enhancement of a Lattice-Based Data Outsourcing Scheme With Public Integrity Verification},
+      author = {Wang, Qingxuan and Cheng, Chi and Xu, Rui and Ding, Jintai and Liu, Zhe},
+      journal = {IEEE Transactions on Services Computing},
+      year = {2022},
+      volume = {15},
+      number = {4},
+      pages = {2226--2231},
+      doi = {10.1109/TSC.2020.3041324}
+    }
+
+- id: wang2022smartcard
+  title: 无线传感网络中基于非抗窜扰智能卡的双因素认证协议
+  authors:
+    - name: 王庆璇
+      self: true
+    - name: 汪定
+  author_separator: "，"
+  language: zh-CN
+  venue_code: ICT
+  venue: 信息对抗技术
+  details: "1(2)：16–37。"
+  year: 2022
+  filters: ""
+  bibtex: |
+    @article{wang2022smartcard,
+      title = {无线传感网络中基于非抗窜扰智能卡的双因素认证协议},
+      author = {王庆璇 and 汪定},
+      journal = {信息对抗技术},
+      year = {2022},
+      volume = {1},
+      number = {2},
+      pages = {16--37},
+      language = {Chinese}
+    }
+
+- id: xu2021failures
+  title: Understanding Security Failures of Anonymous Authentication Schemes for Cloud Environments
+  authors:
+    - name: Meijia Xu
+    - name: Ding Wang
+    - name: Qingxuan Wang
+      self: true
+    - name: Qiaowen Jia
+  venue_code: JSA
+  venue: Journal of Systems Architecture
+  details: "118: 102206."
+  year: 2021
+  filters: ccf-b jcr-q1
+  ccf: B
+  jcr: Q1
+  url: https://doi.org/10.1016/j.sysarc.2021.102206
+  bibtex: |
+    @article{xu2021failures,
+      title = {Understanding Security Failures of Anonymous Authentication Schemes for Cloud Environments},
+      author = {Xu, Meijia and Wang, Ding and Wang, Qingxuan and Jia, Qiaowen},
+      journal = {Journal of Systems Architecture},
+      year = {2021},
+      volume = {118},
+      pages = {102206},
+      doi = {10.1016/j.sysarc.2021.102206}
+    }
+
+- id: wang2021industrial
+  title: Revisiting a Multifactor Authentication Scheme in Industrial IoT
+  authors:
+    - name: Ding Wang
+    - name: Shuhong Hong
+    - name: Qingxuan Wang
+      self: true
+  venue_code: SCN
+  venue: Security and Communication Networks
+  details: Article 9995832.
+  year: 2021
+  filters: ""
+  url: https://doi.org/10.1155/2021/9995832
+  bibtex: |
+    @article{wang2021industrial,
+      title = {Revisiting a Multifactor Authentication Scheme in Industrial {IoT}},
+      author = {Wang, Ding and Hong, Shuhong and Wang, Qingxuan},
+      journal = {Security and Communication Networks},
+      year = {2021},
+      volume = {2021},
+      pages = {9995832},
+      doi = {10.1155/2021/9995832}
+    }
+
+- id: wang2019ntru
+  title: Analysis and Improvement of a NTRU-Based Handover Authentication Scheme
+  authors:
+    - name: Qingxuan Wang
+      self: true
+    - name: Chi Cheng
+    - name: Ling Zuo
+  venue_code: COMML
+  venue: IEEE Communications Letters
+  details: "23(10): 1692–1695."
+  year: 2019
+  filters: jcr-q2
+  jcr: Q2
+  url: https://doi.org/10.1109/LCOMM.2019.2927204
+  bibtex: |
+    @article{wang2019ntru,
+      title = {Analysis and Improvement of a {NTRU}-Based Handover Authentication Scheme},
+      author = {Wang, Qingxuan and Cheng, Chi and Zuo, Ling},
+      journal = {IEEE Communications Letters},
+      year = {2019},
+      volume = {23},
+      number = {10},
+      pages = {1692--1695},
+      doi = {10.1109/LCOMM.2019.2927204}
+    }

@@ -1,0 +1,10 @@
+title: Qingxuan Wang
+description: Academic homepage of Qingxuan Wang at Nankai University
+url: https://qingxuan-wang.github.io
+baseurl: ""
+markdown: kramdown
+exclude:
+  - README.md
+  - SOURCES.md
+  - .preview
+
